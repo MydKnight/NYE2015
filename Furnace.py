@@ -1,18 +1,30 @@
 __author__ = 'madsens'
-import Movies
-import Logging
 
+import Logging
+import os
+import Movies
+import time
+
+# This code runs the Dining Room
 Logging.PowerLog()
 print 'Starting'
-Movies.StartLoop('/home/pi/Christmas-2015/Assets/Fireplace')
+Movies.StartLoop('/home/pi/NYE2015/Assets/Furnace')
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
-    Logging.HeartBeat()
+    #Logging.HeartBeat()
     n = raw_input("Scanned ID: ")
     if n == "STOP":
         Movies.StopLoop()
         print "Stopping."
         break  # stops the loop
     else :
+        # On Input, Disable Reader
+        os.system("/home/pi/NYE2015/Scripts/disableRFID.sh")
         print "Playing."
+        Logging.LogAccess(n)
         Movies.PlayMovie()
+
+        time.sleep(15)
+
+        # On Input, Disable Reader
+        os.system("/home/pi/NYE2015/Scripts/disableRFID.sh")
