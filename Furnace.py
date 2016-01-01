@@ -27,4 +27,4 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         time.sleep(15)
 
         # On Input, Disable Reader
-        os.system("/home/pi/NYE2015/Scripts/disableRFID.sh")
+        os.system("/home/pi/NYE2015/Scripts/enableRFID.sh")
