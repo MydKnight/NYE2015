@@ -24,7 +24,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Logging.LogAccess(n)
         Movies.PlayMovie()
 
-        time.sleep(15)
+        time.sleep(60)
 
         # On Input, Disable Reader
         os.system("/home/pi/NYE2015/Scripts/enableRFID.sh")
